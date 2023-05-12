@@ -1,9 +1,10 @@
-import React from 'react';
+import React from 'react'
 
 import { Footer, Blog, Possibility, Features, WhatGPT3, Header } from './containers';
 import { CTA, Brand, Navbar } from './components';
 
 import './App.css';
+import SupportEngine from './SupportEngine';
 
 const App = () => (
   <div className="App">
@@ -18,6 +19,7 @@ const App = () => (
     <CTA />
     <Blog />
     <Footer />
+  <SupportEngine />
   </div>
 );
 
