@@ -47,3 +47,6 @@ const styles = {
         backgroundColor: '#fff',
     }
 }
+
+// REACT_APP_CE_PRIVATE_KEY=7672219c-4a6b-4427-ac97-cc41f7073f05
+// REACT_APP_CE_PROJECT_ID=a1b7d02f-23ed-4258-b52b-a7e1282f8450
