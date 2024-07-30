@@ -11,7 +11,7 @@ const App = () => {
       <Button className="mx-7 my-4" size="large" variant="secondary" borderRadius="rounded-xs" icon={FaCoffee} iconPosition="right" enabled={true}   >
         Secondary
       </Button>
-      <Button className="mx-7 my-4" size="large" variant="success" borderRadius="rounded-lg" enabled={true}   >
+      <Button className="mx-7 my-4" size="large" variant="success" borderRadius="rounded-lg" enabled={true} >
         Success
       </Button>
       <Button className="mx-7 my-4" size="large" variant="danger" borderRadius="rounded-md" enabled={true}   >
@@ -35,8 +35,8 @@ const App = () => {
       <Button className="mx-7 my-4" size="large" variant="gradient" gradient borderRadius="rounded-md" enabled={true}   >
         Gradient
       </Button>
-      <Button className="mx-7 my-4" customWidth="200px" customHeight="60px" borderRadius="rounded-full" variant="primary" icon={FaCoffee} iconPosition="left" enabled={true}   >
-        Custom Size
+      <Button className="mx-7 my-4" customWidth="200px" customHeight="60px" borderRadius="rounded-full" variant="primary" icon={FaCoffee} iconPosition="left" enabled={true} hoverText="Hovered">
+        Not Hover
       </Button>
     </>
   );

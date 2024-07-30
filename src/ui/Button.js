@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
+import { FaSpinner } from 'react-icons/fa'; // Example spinner icon from react-icons
 
 const Button = ({
   children,
@@ -13,11 +14,14 @@ const Button = ({
   icon: Icon,
   iconPosition = 'left',
   enabled = true,
-  loading = false, // New prop for loading state
   gradient = false,
+  loading = false,
+  hoverText = '', // New prop for hover text
   className,
   ...props
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const baseStyles = 'inline-flex items-center justify-center font-medium focus:outline-none focus:ring-2 focus:ring-offset-2';
 
   const variants = {
@@ -60,18 +64,13 @@ const Button = ({
     right: 'ml-2'
   };
 
-  const loader = (
-    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-    </svg>
-  );
-
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={!enabled || loading}
+      onMouseEnter={() => setIsHovered(true)} // Set hover state to true
+      onMouseLeave={() => setIsHovered(false)} // Set hover state to false
       className={clsx(
         baseStyles,
         variants[variant],
@@ -84,11 +83,11 @@ const Button = ({
       {...props}
     >
       {loading ? (
-        loader
+        <FaSpinner className="animate-spin mr-2" />
       ) : (
         <>
           {Icon && iconPosition === 'left' && <Icon className={iconStyles.left} />}
-          {children}
+          {isHovered && hoverText ? hoverText : children} {/* Change text on hover */}
           {Icon && iconPosition === 'right' && <Icon className={iconStyles.right} />}
         </>
       )}
