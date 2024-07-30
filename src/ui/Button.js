@@ -16,7 +16,9 @@ const Button = ({
   enabled = true,
   gradient = false,
   loading = false,
-  hoverText = '', // New prop for hover text
+  textColor = 'text-white',
+  hoverText = '',
+  hoverEffect = '',
   className,
   ...props
 }) => {
@@ -37,6 +39,18 @@ const Button = ({
     gradient: gradient
       ? 'bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-white hover:from-green-500 hover:via-blue-600 hover:to-purple-700'
       : ''
+  };
+
+  const textColors = {
+    white: 'text-white',
+    gray: 'text-gray-700',
+    red: 'text-red-500',
+    green: 'text-green-500',
+    blue: 'text-blue-500',
+    yellow: 'text-yellow-500',
+    purple: 'text-purple-500',
+    teal: 'text-teal-500',
+    pink: 'text-pink-500',
   };
 
   const sizes = {
@@ -64,19 +78,31 @@ const Button = ({
     right: 'ml-2'
   };
 
+  const hoverEffects = {
+    'text-change': 'hover:text-yellow-500',
+    'bg-change': 'hover:bg-yellow-500',
+    'shadow': 'hover:shadow-lg',
+    'underline': 'hover:underline',
+    'scale': 'hover:scale-105',
+    'fill-left-to-right': 'relative overflow-hidden after:content-[""] after:absolute after:left-[-100%] after:top-0 after:w-full after:h-full after:bg-current after:transition-transform after:duration-300 hover:after:translate-x-full',
+    'remove-left-to-right': 'relative overflow-hidden after:content-[""] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-transparent after:transition-transform after:duration-300 hover:after:translate-x-[100%]'
+  };
+
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={!enabled || loading}
-      onMouseEnter={() => setIsHovered(true)} // Set hover state to true
-      onMouseLeave={() => setIsHovered(false)} // Set hover state to false
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       className={clsx(
         baseStyles,
         variants[variant],
         sizes[size],
         borderRadiusStyles[borderRadius],
+        textColors[textColor] || textColors['white'],
         (!enabled || loading) && 'opacity-50 cursor-not-allowed',
+        hoverEffects[hoverEffect],
         className
       )}
       style={customSizeStyles}

@@ -8,10 +8,10 @@ const App = () => {
       <Button className="mx-7 my-4" size="large" variant="primary" borderRadius="rounded-sm" icon={FaCoffee} iconPosition="left" enabled={true}  loading={true} >
         Primary
       </Button>
-      <Button className="mx-7 my-4" size="large" variant="secondary" borderRadius="rounded-xs" icon={FaCoffee} iconPosition="right" enabled={true}   >
+      <Button className="mx-7 my-4" textColor="red" size="large" variant="secondary" borderRadius="rounded-xs" icon={FaCoffee} iconPosition="right" enabled={true} hoverEffect="fill-left-to-right">
         Secondary
       </Button>
-      <Button className="mx-7 my-4" size="large" variant="success" borderRadius="rounded-lg" enabled={true} >
+      <Button className="mx-7 my-4" size="large" variant="success" borderRadius="rounded-lg" enabled={true} hoverEffect="scale">
         Success
       </Button>
       <Button className="mx-7 my-4" size="large" variant="danger" borderRadius="rounded-md" enabled={true}   >
