@@ -22,7 +22,7 @@ const Button = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const baseStyles = 'inline-flex items-center justify-center font-medium focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseStyles = 'inline-flex items-center justify-center font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-transform transform active:scale-95';
 
   const variants = {
     primary: 'bg-blue-500 text-white hover:bg-blue-600',
